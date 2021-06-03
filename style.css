@@ -1,8 +1,9 @@
 body {
   background-color: black;
+  font-family: 'Inter', sans-serif;
 }
 
-#background, .background__slide {
+.background, .background__slide {
   background-color: #000000;
   background-size: cover;
   bottom: 0;
@@ -13,13 +14,46 @@ body {
 }
 
 
-/*/ == DEBUG
-#background, .background__slide {
+/* / == DEBUG */
+/*
+.background, .background__slide {
   background-image: none !important;
 }
 
-#background { background-color: red; }
+.background { background-color: red; }
 .background__slide:nth-child(1) { background-color: orange; }
 .background__slide:nth-child(2) { background-color: yellow; }
 .background__slide:nth-child(3) { background-color: green; }
-== */
+/* == */
+
+.content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 480px;
+}
+
+p {
+  line-height: 1.5;
+  max-width: 32rem;
+}
+
+body.a--aware {
+  color: #000;
+}
+
+body.a--focus {
+  color: #fff;
+}
+
+body.a--focus .logo path { fill: #fff; }
