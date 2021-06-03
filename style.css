@@ -103,14 +103,3 @@ body.a--immersion .logo path { fill: #fff; }
 
 body { transition: color 1.6s; }
 .logo path { transition: fill 1.6s; }
-
-
-
-
-
-
-#controls {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
