@@ -1,0 +1,25 @@
+body {
+  background-color: black;
+}
+
+#background, .background__slide {
+  background-color: #000000;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+/*/ == DEBUG
+#background, .background__slide {
+  background-image: none !important;
+}
+
+#background { background-color: red; }
+.background__slide:nth-child(1) { background-color: orange; }
+.background__slide:nth-child(2) { background-color: yellow; }
+.background__slide:nth-child(3) { background-color: green; }
+== */

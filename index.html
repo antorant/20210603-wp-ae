@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div id="background" style="background-image:url('img/AE-filipe-neumann--focus-01.jpg');">
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--focus-02.jpg');"></div>
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--focus-03.jpg');"></div>
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--focus-04.jpg');"></div>
+    </div>
+
+    <script>
+
+$('.background__slide').fadeOut(0);
+
+var counter = 0;
+var total = $('.background__slide').length - 1;
+var time = 2000;
+console.log('total is '+total);
+
+function updateCounter() {
+  if (counter == total) {
+    counter = 0;
+  } else {
+    counter++;
+  }
+  nextSlide();
+}
+
+function revertSlides() {
+  console.log('revertSlides');
+  $('.background__slide').not(':last-child').fadeOut(0);
+  $('.background__slide').eq(counter).fadeOut(time, function(){
+    updateCounter();
+  });
+}
+
+function nextSlide() {
+  console.log('next slide');
+  console.log('counter is '+counter);
+  $('.background__slide').eq(counter).fadeIn(time, function(){
+    if (counter == total) {
+      revertSlides();
+    } else {
+      updateCounter();
+    }
+  });
+}
+
+nextSlide();
+
+
+    </script>
+  </body>
+</html>
