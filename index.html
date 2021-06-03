@@ -11,16 +11,22 @@
   </head>
   <body class="">
 
-    <div id="filipe-neumann--focus" class="background" style="background-image:url('img/AE-filipe-neumann--focus-01.png');">
+    <div id="ae--immersion" class="background ae--immersion" style="background-image:url('img/AE-filipe-neumann--immersion-01.png');">
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--immersion-02.png');"></div>
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--immersion-03.png');"></div>
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--immersion-04.png');"></div>
+    </div>
+
+    <div id="ae--focus" class="background ae--focus" style="background-image:url('img/AE-filipe-neumann--focus-01.png');">
       <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--focus-02.png');"></div>
       <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--focus-03.png');"></div>
       <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--focus-04.png');"></div>
     </div>
 
-    <div id="moqadam-paduret--aware" class="background" style="background-image:url('img/AE-moqadam-paduret--aware-01.png');">
-      <div class="background__slide" style="background-image:url('img/AE-moqadam-paduret--aware-02.png');"></div>
-      <div class="background__slide" style="background-image:url('img/AE-moqadam-paduret--aware-03.png');"></div>
-      <div class="background__slide" style="background-image:url('img/AE-moqadam-paduret--aware-04.png');"></div>
+    <div id="ae--aware" class="background ae--aware" style="background-image:url('img/AE-filipe-neumann--aware-01.png');">
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--aware-02.png');"></div>
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--aware-03.png');"></div>
+      <div class="background__slide" style="background-image:url('img/AE-filipe-neumann--aware-04.png');"></div>
     </div>
 
     <div class="content">
@@ -30,22 +36,48 @@
       <p>We provide adaptive music both for psychedelic therapy and <br/>as psychedelic therapy, in collaboration with world class artists.</p>
     </div>
 
+    <div id="controls">
+      <button onclick="updateAmbience('aware')">Aware</button>
+      <button onclick="updateAmbience('focus')">Focus</button>
+      <button onclick="updateAmbience('immersion')">Immersion</button>
+    </div>
 
     <script>
 // Get ae version, set default if not
-var ae = findGetParameter("ae");
-if (!ae) { ae = "moqadam-paduret--aware"; }
+// var ae = findGetParameter("ae");
+// if (!ae) { ae = "moqadam-paduret--aware"; }
+
+// get ambience, set default
+var a = findGetParameter("a");
+if (!a) { a = "aware"; }
+console.log(a);
+// add class to body
+$("body").addClass("a--" + a);
+// show ambience element
+$("#ae--" + a).addClass("--visible");
+
 // remove unused version elements from DOM
-$('.background').not("#"+ae).remove();
+// $('.background').not("#"+ae).remove();
 
 // get time setting, set default if not
-var time = findGetParameter("t");
-if (!time) { time = 4000; }
+// var time = findGetParameter("t");
+// if (!time) { time = 4000; }
 
 // get ambience, set body class
-if (ae.search("--aware") != -1) { $('body').addClass('a--aware'); }
-if (ae.search("--focus") != -1) { $('body').addClass('a--focus'); }
+// if (ae.search("--aware") != -1) { $('body').addClass('a--aware'); }
+// if (ae.search("--focus") != -1) { $('body').addClass('a--focus'); }
 
+
+
+function updateAmbience(a) {
+  console.log(a);
+  $("body").removeClass("a--aware a--focus a--immersion");
+  $("body").addClass("a--" + a);
+
+  $("#ae--aware, #ae--focus, #ae--immersion").removeClass("--visible");
+  $("#ae--" + a).addClass("--visible");
+
+}
 
 
 // https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript

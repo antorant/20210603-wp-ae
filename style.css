@@ -13,6 +13,27 @@ body {
   top: 0;
 }
 
+.background {
+  opacity: 0;
+  transition: opacity 1.6s;
+}
+.background.--visible { opacity: 1; }
+
+.background.ae--aware,
+.background.ae--aware .background__slide {
+  background-color: #ffffff;
+}
+
+.background.ae--focus,
+.background.ae--focus .background__slide {
+  background-color: #cccccc;
+}
+
+.background.ae--immersion,
+.background.ae--immersion .background__slide {
+  background-color: #666666;
+}
+
 
 /* / == DEBUG */
 /*
@@ -38,6 +59,11 @@ body {
 .background__slide {
   animation-iteration-count: infinite;
   animation-name: fadeInOut;
+  animation-play-state: paused;
+}
+
+.background.--visible .background__slide {
+  animation-play-state: running;
 }
 
 .background__slide:nth-child(1) { animation-duration: 7s; }
@@ -69,12 +95,22 @@ p {
   max-width: 32rem;
 }
 
-body.a--aware {
-  color: #000;
-}
-
-body.a--focus {
-  color: #fff;
-}
-
+body.a--aware { color: #000; }
+body.a--focus { color: #fff; }
 body.a--focus .logo path { fill: #fff; }
+body.a--immersion { color: #fff; }
+body.a--immersion .logo path { fill: #fff; }
+
+body { transition: color 1.6s; }
+.logo path { transition: fill 1.6s; }
+
+
+
+
+
+
+#controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
