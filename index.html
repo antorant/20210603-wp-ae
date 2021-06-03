@@ -2,8 +2,8 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
       crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,40 +46,6 @@ if (!time) { time = 4000; }
 if (ae.search("--aware") != -1) { $('body').addClass('a--aware'); }
 if (ae.search("--focus") != -1) { $('body').addClass('a--focus'); }
 
-// set a counter and count the number of slides
-var counter = 0;
-var total = $('.background__slide').length - 1;
-
-// hide slides initially
-$('.background__slide').fadeOut(0);
-
-
-
-function updateCounter() {
-  if (counter == total) {
-    counter = 0;
-  } else {
-    counter++;
-  }
-  nextSlide();
-}
-
-function revertSlides() {
-  $('.background__slide').not(':last-child').fadeOut(0);
-  $('.background__slide').eq(counter).fadeOut(time, function(){
-    updateCounter();
-  });
-}
-
-function nextSlide() {
-  $('.background__slide').eq(counter).fadeIn(time, function(){
-    if (counter == total) {
-      revertSlides();
-    } else {
-      updateCounter();
-    }
-  });
-}
 
 
 // https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
@@ -95,9 +61,6 @@ function findGetParameter(parameterName) {
       });
   return result;
 }
-
-nextSlide();
-
 
     </script>
   </body>
