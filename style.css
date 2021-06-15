@@ -98,8 +98,25 @@ p {
 body.a--aware { color: #000; }
 body.a--focus { color: #fff; }
 body.a--focus .logo path { fill: #fff; }
+body.a--focus button { border-color: #fff; color: #fff; }
 body.a--immersion { color: #fff; }
 body.a--immersion .logo path { fill: #fff; }
+body.a--immersion button { border-color: #fff; color: #fff; }
 
 body { transition: color 1.6s; }
 .logo path { transition: fill 1.6s; }
+button { transition: border-color 1.6s, color 1.6s; }
+
+
+/* UI */
+button {
+  background-color: transparent;
+  border-color: #000;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1rem;
+  cursor: pointer;
+  height: 2rem;
+  padding: 0 1rem;
+  outline: 0 none;
+}
