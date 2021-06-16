@@ -101,19 +101,19 @@ p {
 }
 
 body.a--aware { color: #000; }
-body.a--aware button { border-color: rgba(0, 0, 0, .3); color: #000; }
+body.a--aware button { border-color: rgba(0, 0, 0, .2); color: #000; }
 body.a--aware button:hover,
 body.a--aware .button__aware { border-color: rgba(0, 0, 0, 1); }
 
 body.a--focus { color: #fff; }
 body.a--focus .logo path { fill: #fff; }
-body.a--focus button { border-color: rgba(255, 255, 255, .3); color: #fff; }
+body.a--focus button { border-color: rgba(255, 255, 255, .2); color: #fff; }
 body.a--focus button:hover,
 body.a--focus .button__focus { border-color: rgba(255, 255, 255, 1); }
 
 body.a--immersion { color: #fff; }
 body.a--immersion .logo path { fill: #fff; }
-body.a--immersion button { border-color: rgba(255, 255, 255, .3); color: #fff; }
+body.a--immersion button { border-color: rgba(255, 255, 255, .2); color: #fff; }
 body.a--immersion button:hover,
 body.a--immersion .button__immersion { border-color: rgba(255, 255, 255, 1); }
 
@@ -157,7 +157,7 @@ body.a--immersion .directions__immersion { opacity: 1; }
 /* UI */
 button {
   background-color: transparent;
-  border-color: rgba(0, 0, 0, .2);
+  border-color: rgba(0, 0, 0, .1);
   border-style: solid;
   border-width: 1px;
   border-radius: 1rem;
