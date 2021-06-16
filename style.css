@@ -140,6 +140,16 @@ body.a--focus .directions__focus { opacity: 1; }
 body.a--immersion .directions__immersion { opacity: 1; }
 
 
+#loading {
+  display: none;
+  padding: 1rem 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+
 /* UI */
 button {
   background-color: transparent;

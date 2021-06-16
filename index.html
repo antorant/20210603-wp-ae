@@ -5,6 +5,7 @@
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -69,45 +70,32 @@
       </div>
     </div>
 
+    <div id="loading"><em>loading&hellip;</em></div>
+
 
 
     <script>
-// Get ae version, set default if not
-// var ae = findGetParameter("ae");
-// if (!ae) { ae = "moqadam-paduret--aware"; }
-
 // get ambience, set default
-var depth = findGetParameter("depth");
-if (!depth) { depth = "aware"; }
-// console.log(a);
+var depth = findGetParameter(`depth`);
+if (!depth) { depth = `aware`; }
 // add class to body
-$("body").addClass("a--" + depth);
+$(`body`).addClass(`a--` + depth);
 
-// remove unused version elements from DOM
-// $('.background').not("#"+ae).remove();
-
-// get time setting, set default if not
-// var time = findGetParameter("t");
-// if (!time) { time = 4000; }
-
-// get ambience, set body class
-// if (ae.search("--aware") != -1) { $('body').addClass('a--aware'); }
-// if (ae.search("--focus") != -1) { $('body').addClass('a--focus'); }
-
-var env = findGetParameter("env");
-if (!env) { env = "1"; }
+var env = findGetParameter(`env`);
+if (!env) { env = `1`; }
 
 var aeId = `czerwinski-giorgio`;
 
 switch (env) {
-  case "1": aeId = `czerwinski-giorgio`; break;
-  case "2": aeId = `filipe-neumann`; break;
-  case "3": aeId = `moqadam-paduret`; break;
+  case `1`: aeId = `czerwinski-giorgio`; break;
+  case `2`: aeId = `filipe-neumann`; break;
+  case `3`: aeId = `moqadam-paduret`; break;
   default: aeId = `czerwinski-giorgio`;
 }
 
 console.log(env, aeId);
 
+$(`#loading`).show();
 
 $(`.background, .background__slide`).each(function(i){
   index = $(this).data(`bg-index`);
@@ -116,12 +104,16 @@ $(`.background, .background__slide`).each(function(i){
   $(this).css(`background-image`, src);
 })
 
+$(`.background, .background__slide`).imagesLoaded( { background: true }, function() {
+  $(`#loading`).hide();
+});
+
 
 
 function updateAmbience(a) {
   // console.log(a);
-  $("body").removeClass("a--aware a--focus a--immersion");
-  $("body").addClass("a--" + a);
+  $(`body`).removeClass(`a--aware a--focus a--immersion`);
+  $(`body`).addClass(`a--` + a);
 }
 
 
@@ -131,9 +123,9 @@ function findGetParameter(parameterName) {
       tmp = [];
   location.search
       .substr(1)
-      .split("&")
+      .split(`&`)
       .forEach(function (item) {
-        tmp = item.split("=");
+        tmp = item.split(`=`);
         if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
       });
   return result;
