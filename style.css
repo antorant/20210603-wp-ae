@@ -4,7 +4,6 @@ body {
 }
 
 .background, .background__slide {
-  background-color: #000000;
   background-size: cover;
   bottom: 0;
   left: 0;
@@ -17,21 +16,27 @@ body {
   opacity: 0;
   transition: opacity 1.6s;
 }
-.background.--visible { opacity: 1; }
 
-.background.ae--aware,
-.background.ae--aware .background__slide {
+.background.ae--aware {
   background-color: #ffffff;
 }
 
-.background.ae--focus,
-.background.ae--focus .background__slide {
+.background.ae--focus {
   background-color: #cccccc;
 }
 
-.background.ae--immersion,
-.background.ae--immersion .background__slide {
+.background.ae--immersion {
   background-color: #666666;
+}
+
+body.a--aware .background.ae--aware,
+body.a--focus .background.ae--focus,
+body.a--immersion .background.ae--immersion { opacity: 1; }
+
+body.a--aware .background.ae--aware .background__slide,
+body.a--focus .background.ae--focus .background__slide,
+body.a--immersion .background.ae--immersion .background__slide {
+  animation-play-state: running;
 }
 
 
@@ -62,10 +67,6 @@ body {
   animation-play-state: paused;
 }
 
-.background.--visible .background__slide {
-  animation-play-state: running;
-}
-
 .background__slide:nth-child(1) { animation-duration: 7s; }
 .background__slide:nth-child(2) { animation-duration: 11s; }
 .background__slide:nth-child(3) { animation-duration: 15s; }
@@ -80,6 +81,7 @@ body {
   height: 100%;
   justify-content: center;
   margin: 0 auto;
+  max-width: 32rem;
   position: relative;
   text-align: center;
   width: 100%;
@@ -87,36 +89,71 @@ body {
 
 .logo {
   margin: 0 auto;
-  width: 480px;
+  width: 24rem;
+}
+
+a, a:link, a:visited {
+  color: inherit;
 }
 
 p {
   line-height: 1.5;
-  max-width: 32rem;
 }
 
 body.a--aware { color: #000; }
+body.a--aware button { border-color: rgba(0, 0, 0, .3); color: #000; }
+body.a--aware button:hover,
+body.a--aware .button__aware { border-color: rgba(0, 0, 0, 1); }
+
 body.a--focus { color: #fff; }
 body.a--focus .logo path { fill: #fff; }
-body.a--focus button { border-color: #fff; color: #fff; }
+body.a--focus button { border-color: rgba(255, 255, 255, .3); color: #fff; }
+body.a--focus button:hover,
+body.a--focus .button__focus { border-color: rgba(255, 255, 255, 1); }
+
 body.a--immersion { color: #fff; }
 body.a--immersion .logo path { fill: #fff; }
-body.a--immersion button { border-color: #fff; color: #fff; }
+body.a--immersion button { border-color: rgba(255, 255, 255, .3); color: #fff; }
+body.a--immersion button:hover,
+body.a--immersion .button__immersion { border-color: rgba(255, 255, 255, 1); }
 
 body { transition: color 1.6s; }
 .logo path { transition: fill 1.6s; }
 button { transition: border-color 1.6s, color 1.6s; }
 
 
+.directions {
+  min-height: 4.5rem;
+  position: relative;
+  width: 100%;
+}
+
+.directions p {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 1.6s;
+  width: 100%;
+}
+
+body.a--aware .directions__aware { opacity: 1; }
+body.a--focus .directions__focus { opacity: 1; }
+body.a--immersion .directions__immersion { opacity: 1; }
+
+
 /* UI */
 button {
   background-color: transparent;
-  border-color: #000;
+  border-color: rgba(0, 0, 0, .2);
   border-style: solid;
   border-width: 1px;
   border-radius: 1rem;
   cursor: pointer;
+  font-size: .75rem;
   height: 2rem;
+  margin: 0 .5rem;
+  min-width: 6rem;
   padding: 0 1rem;
   outline: 0 none;
 }
+
+button:hover { border-color: rgba(0, 0, 0, 1); }
