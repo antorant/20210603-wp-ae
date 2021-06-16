@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div id="loading"><em>loading&hellip;</em></div>
+    <div id="loading"><em>loading images&hellip;</em></div>
 
 
 
@@ -79,7 +79,7 @@
 var depth = findGetParameter(`depth`);
 if (!depth) { depth = `aware`; }
 // add class to body
-$(`body`).addClass(`a--` + depth);
+
 
 var env = findGetParameter(`env`);
 if (!env) { env = `1`; }
@@ -106,6 +106,7 @@ $(`.background, .background__slide`).each(function(i){
 
 $(`.background, .background__slide`).imagesLoaded( { background: true }, function() {
   $(`#loading`).hide();
+  $(`body`).addClass(`a--` + depth);
 });
 
 
