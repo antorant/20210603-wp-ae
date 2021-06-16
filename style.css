@@ -140,12 +140,16 @@ body.a--focus .directions__focus { opacity: 1; }
 body.a--immersion .directions__immersion { opacity: 1; }
 
 
-#loading {
+.loading {
+  animation-duration: 3.2s;
+  animation-iteration-count: infinite;
+  animation-name: fadeInOut;
   display: none;
+  margin-top: -1rem;
   padding: 1rem 0;
   position: absolute;
   text-align: center;
-  top: 0;
+  top: 50%;
   width: 100%;
 }
 
